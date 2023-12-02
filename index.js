@@ -9,6 +9,7 @@ import connectToDB from './src/config/db.js';
 
 import authRoutes from './src/routes/auth.js'
 import hotelRoutes from './src/routes/hotel.js'
+import userRoutes from './src/routes/users.js'
 
 const v1 = '/api/v1/hotel-reservation'
 
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 app.use(`${v1}/auth`, authRoutes)
 app.use(`${v1}/hotels`, hotelRoutes)
+app.use(`${v1}/users`, userRoutes)
 
 // Handle errors
 app.use((err, req, res, next) => {
