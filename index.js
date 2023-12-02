@@ -7,7 +7,9 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import connectToDB from './src/config/db.js';
 
-const v1 = 'api/v1/hotel-reservation'
+import hotelRoutes from './src/routes/hotel.js'
+
+const v1 = '/api/v1/hotel-reservation'
 
 // Middleware
 const app = express();
@@ -16,6 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(morgan('dev'));
 app.use(cookieParser());
+
+app.use(`${v1}/hotels`, hotelRoutes)
 
 // Server Listenning
 const PORT = process.env.PORT || 5000;
